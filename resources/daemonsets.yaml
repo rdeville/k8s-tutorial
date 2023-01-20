@@ -1,0 +1,22 @@
+---
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: ds-python-http
+  labels:
+    app: ds-python-http
+spec:
+  selector:
+    matchLabels:
+      app: ds-python-http
+  template:
+    metadata:
+      name: ds-python-http
+      labels:
+        app: ds-python-http
+    spec:
+      containers:
+        - name: ds-http-server
+          image: rdeville/python-http:3.16
+          ports:
+            - containerPort: 9000
