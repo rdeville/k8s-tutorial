@@ -1,0 +1,12 @@
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: toolbox
+spec:
+  containers:
+    - name: runtime
+      image: giantswarm/tiny-tools
+      command:
+        - sleep
+        - infinity
