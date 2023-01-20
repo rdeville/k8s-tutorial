@@ -1,0 +1,24 @@
+---
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: sts-python-http
+  labels:
+    app: sts-python-http
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: sts-python-http
+  serviceName: services-sts-python-http
+  template:
+    metadata:
+      name: sts-python-http
+      labels:
+        app: sts-python-http
+    spec:
+      containers:
+        - name: http-server
+          image: rdeville/python-http:3.16
+          ports:
+            - containerPort: 9000
