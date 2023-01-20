@@ -1,0 +1,23 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: python-http
+  labels:
+    app: python-http
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: python-http
+  template:
+    metadata:
+      name: python-http
+      labels:
+        app: python-http
+    spec:
+      containers:
+        - name: http-server
+          image: rdeville/python-http:3.16
+          ports:
+            - containerPort: 9000
