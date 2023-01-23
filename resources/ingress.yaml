@@ -1,0 +1,21 @@
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: python-http
+  annotations:
+    kubernetes.io/ingress.class: "nginx"
+    # Annotation de configuration de l’ingress
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  rules:
+    - host: localhost
+      http:
+       paths:
+         - path: /pythonhttp
+           pathType: Prefix
+           backend:
+             service:
+               name: svc-python-http
+               port:
+                 number: 80
