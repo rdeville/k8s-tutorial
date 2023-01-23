@@ -21,3 +21,11 @@ spec:
           image: rdeville/python-http:3.16
           ports:
             - containerPort: 9000
+          volumeMounts:
+            - name: config
+              mountPath: "/app/index.html"
+              subPath: index.html
+      volumes:
+      - name: config
+        configMap:
+          name: python-http-index
