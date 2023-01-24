@@ -10,3 +10,10 @@ spec:
       command:
         - sleep
         - infinity
+      volumeMounts:
+        - mountPath: "/mnt"
+          name: data-pv-storage
+  volumes:
+    - name: data-pv-storage
+      persistentVolumeClaim:
+        claimName: data-pv-claim
