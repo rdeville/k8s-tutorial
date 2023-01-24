@@ -1,0 +1,16 @@
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  # Pas besoin de spécifier le Namespace
+  # namespace: default
+  name: secret-reader
+rules:
+  - apiGroups:
+      - ""        # “” Indique l’API Group Core
+    resources:
+      - "secrets"
+    verbs:
+      - "get"
+      - "watch"
+      - "list"
