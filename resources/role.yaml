@@ -6,10 +6,10 @@ metadata:
   name: pod-reader
 rules:
   - apiGroups:
-      - “”        # “” Indique l’API Group Core
+      - ""        # "" Indique l’API Group Core
     resources:
-      - “pods”
+      - "pods"
     verbs:
-      - “get”
-      - “watch”
-      - “list”
+      - "get"
+      - "watch"
+      - "list"
